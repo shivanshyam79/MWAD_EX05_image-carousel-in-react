@@ -39,10 +39,71 @@ Use setInterval to call the nextImage() function at regular intervals.
 Clean up the interval when the component unmounts using clearInterval to prevent memory leaks.
 
 ## PROGRAM
+ImageCarousel.js
+```
+import React, { useState, useEffect } from 'react';
+import img1 from './assets/img1.png';
+import img2 from './assets/img2.png';
+import img3 from './assets/img3.png';
 
+const ImageCarousel = () => {
+  const images = [img1, img2, img3];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentIndex((currentIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextImage, 3000);
+    return () => clearInterval(interval); // Clean up
+  }, [currentIndex]);
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <img
+        src={images[currentIndex]}
+        alt={`carousel-${currentIndex}`}
+        width="400"
+        height="200"
+        style={{ borderRadius: '10px' }}
+      />
+      <div style={{ marginTop: '10px' }}>
+        <button onClick={prevImage}>Previous</button>
+        <button onClick={nextImage} style={{ marginLeft: '10px' }}>Next</button>
+      </div>
+    </div>
+  );
+};
+
+export default ImageCarousel;
+```
+App.js
+```
+import React from 'react';
+import './App.css';
+import ImageCarousel from './ImageCarousel';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>React Image Carousel</h1>
+      <ImageCarousel />
+    </div>
+  );
+}
+
+export default App;
+```
 
 ## OUTPUT
-
+![image](https://github.com/user-attachments/assets/36f77c3d-935c-4053-95d9-23fac9579066)
+![image](https://github.com/user-attachments/assets/ee25961c-a017-4d8f-99cf-f4bcc4708a4e)
+![image](https://github.com/user-attachments/assets/ac03e12a-f73c-4085-be17-f3cf344dc6d3)
 
 ## RESULT
 The program for creating Image Carousel using React is executed successfully.
