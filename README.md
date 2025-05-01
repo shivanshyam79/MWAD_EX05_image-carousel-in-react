@@ -42,12 +42,12 @@ Clean up the interval when the component unmounts using clearInterval to prevent
 ImageCarousel.js
 ```
 import React, { useState, useEffect } from 'react';
-import img1 from './assets/img1.png';
-import img2 from './assets/img2.png';
-import img3 from './assets/img3.png';
+import VK from './assets/VK.png';
+import MK from './assets/MK.png';
+
 
 const ImageCarousel = () => {
-  const images = [img1, img2, img3];
+  const images = [VK,MK];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
@@ -64,7 +64,7 @@ const ImageCarousel = () => {
   }, [currentIndex]);
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+    <div style={{ textAlign: 'center', marginTop: '10px' }}>
       <img
         src={images[currentIndex]}
         alt={`carousel-${currentIndex}`}
@@ -81,6 +81,7 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
+
 ```
 App.js
 ```
@@ -101,9 +102,9 @@ export default App;
 ```
 
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/36f77c3d-935c-4053-95d9-23fac9579066)
-![image](https://github.com/user-attachments/assets/ee25961c-a017-4d8f-99cf-f4bcc4708a4e)
-![image](https://github.com/user-attachments/assets/ac03e12a-f73c-4085-be17-f3cf344dc6d3)
+![image](https://github.com/user-attachments/assets/60862b93-07ca-40c3-bba9-44724c910ed6)
+![image](https://github.com/user-attachments/assets/4a30b026-1e89-46d9-9490-5b70fe14dfcd)
+
 
 ## RESULT
 The program for creating Image Carousel using React is executed successfully.
