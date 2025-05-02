@@ -102,8 +102,9 @@ export default App;
 ```
 
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/60862b93-07ca-40c3-bba9-44724c910ed6)
-![image](https://github.com/user-attachments/assets/4a30b026-1e89-46d9-9490-5b70fe14dfcd)
+![image](https://github.com/user-attachments/assets/fd63dff1-60fa-4494-a964-7a18b3364dc4)
+![image](https://github.com/user-attachments/assets/84d1aff1-1940-4a38-be95-63efe8a0ce8e)
+
 
 
 ## RESULT
