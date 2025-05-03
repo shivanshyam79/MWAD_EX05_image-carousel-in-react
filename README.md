@@ -40,7 +40,7 @@ Clean up the interval when the component unmounts using clearInterval to prevent
 
 ## PROGRAM
 ImageCarousel.jsx
-```jsx
+```
 import React, { useState, useEffect } from 'react';
 import VK from './assets/VK.png';
 import MK from './assets/MK.png';
@@ -111,7 +111,7 @@ export default ImageCarousel;
 
 ```
 App.jsx
-```jsx
+```
 import React from 'react';
 import './App.css';
 import ImageCarousel from './ImageCarousel';
