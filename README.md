@@ -39,42 +39,69 @@ Use setInterval to call the nextImage() function at regular intervals.
 Clean up the interval when the component unmounts using clearInterval to prevent memory leaks.
 
 ## PROGRAM
-ImageCarousel.js
-```
+ImageCarousel.jsx
+```jsx
 import React, { useState, useEffect } from 'react';
 import VK from './assets/VK.png';
 import MK from './assets/MK.png';
 
-
 const ImageCarousel = () => {
-  const images = [VK,MK];
+  const images = [VK, MK];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
-    setCurrentIndex((currentIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const prevImage = () => {
-    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   useEffect(() => {
     const interval = setInterval(nextImage, 3000);
-    return () => clearInterval(interval); // Clean up
+    return () => clearInterval(interval); // Cleanup on unmount
   }, [currentIndex]);
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '10px' }}>
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <h3>Image Carousel</h3>
       <img
         src={images[currentIndex]}
         alt={`carousel-${currentIndex}`}
         width="400"
         height="200"
-        style={{ borderRadius: '10px' }}
+        style={{ borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
       />
-      <div style={{ marginTop: '10px' }}>
-        <button onClick={prevImage}>Previous</button>
-        <button onClick={nextImage} style={{ marginLeft: '10px' }}>Next</button>
+      <div style={{ marginTop: '12px' }}>
+        <button
+          onClick={prevImage}
+          style={{
+            padding: '8px 16px',
+            fontSize: '14px',
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer'
+          }}
+        >
+          Previous
+        </button>
+        <button
+          onClick={nextImage}
+          style={{
+            marginLeft: '10px',
+            padding: '8px 16px',
+            fontSize: '14px',
+            backgroundColor: '#2196F3',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer'
+          }}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
@@ -83,8 +110,8 @@ const ImageCarousel = () => {
 export default ImageCarousel;
 
 ```
-App.js
-```
+App.jsx
+```jsx
 import React from 'react';
 import './App.css';
 import ImageCarousel from './ImageCarousel';
@@ -102,8 +129,9 @@ export default App;
 ```
 
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/fd63dff1-60fa-4494-a964-7a18b3364dc4)
-![image](https://github.com/user-attachments/assets/84d1aff1-1940-4a38-be95-63efe8a0ce8e)
+![image](https://github.com/user-attachments/assets/a8a43f7a-ac29-4993-8ce5-f27c4ce1ae60)
+![image](https://github.com/user-attachments/assets/29ac0fbf-3575-4057-b496-d649f534a82a)
+
 
 
 
