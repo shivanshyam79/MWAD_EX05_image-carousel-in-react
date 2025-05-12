@@ -1,5 +1,7 @@
 # MWAD_EX05_image-carousel-in-react
-## Date:1.05.2025
+## Date:12\05\2025
+## Name : shyam R
+## reg no : 212223040200
 
 ## AIM
 To create a Image Carousel using React 
